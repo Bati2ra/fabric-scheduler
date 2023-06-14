@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.bati.fabricscheduler.Scheduler"
+          "com.bati.fabricscheduler.FabricScheduler"
 		]
 	},
 	"mixins": [
