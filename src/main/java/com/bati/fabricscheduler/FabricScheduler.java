@@ -25,6 +25,8 @@ public class FabricScheduler implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        scheduler = new Scheduler();
+        schedulerHooks = new SchedulerHooks(scheduler);
 
         ServerLifecycleEvents.SERVER_STOPPING.register(this::onServerStopping);
         ServerLifecycleEvents.SERVER_STARTING.register(this::onServerStarting);
@@ -65,10 +67,8 @@ public class FabricScheduler implements ModInitializer {
     }
 
     private void onServerStarting(MinecraftServer server) {
-        scheduler = new Scheduler();
 
         registerCleanUpTask();
-        schedulerHooks = new SchedulerHooks(scheduler);
 
         /*
         schedulerHooks.scheduleAsyncTask(() -> System.out.println("Iniciando el servidor de forma asincrona"));
